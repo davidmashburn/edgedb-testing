@@ -18,6 +18,8 @@ services:
       EDGEDB_POSTGRES_DSN: postgres://person:password@postgres:5432/dataz
       EDGEDB_PASSWORD: password
       EDGEDB_GENERATE_SELF_SIGNED_CERT: 1
+    volumes:
+      - .edgedb-certs:/run/edgedb
     depends_on:
       - postgres
     ports:
