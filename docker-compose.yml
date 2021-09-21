@@ -16,11 +16,15 @@ services:
     image: edgedb/edgedb:1-beta3
     environment:
       EDGEDB_POSTGRES_DSN: postgres://person:password@postgres:5432/dataz
-      EDGEDB_PASSWORD: password
+      EDGEDB_PASSWORD: yvUkkFvQl9AqZV3PnCVPVZSg
       EDGEDB_GENERATE_SELF_SIGNED_CERT: 1
+      PORT: 10700
     volumes:
       - .edgedb-certs:/run/edgedb
     depends_on:
       - postgres
     ports:
       - '5656:5656'
+      - '10700:10700'
+# Get a view of what edgedb is doing internally:
+# pg_dumpall -U person -l dataz -p 5432 -h localhost -W -f /tmp/outfile
